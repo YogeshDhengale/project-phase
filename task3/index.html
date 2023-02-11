@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+    .search-tab{
+        margin: 100px;
+    }
+</style>
+<body>
+    <div class="search-tab">
+        <input type="text" placeholder="Please Enter a Movie Title" id="searchBar">
+        <button id="searchBtn">SEARCH</button>
+    </div>
+    <div id="result-container">
+
+    </div>
+</body>
+<script>
+    const apiKey=''
+    const searchBtn=document.getElementById('searchBtn')
+    const input=document.getElementById('searchBar')
+    const reasultContainer=document.getElementById('result-container')
+
+    console.log(searchBtn, input, reasultContainer);
+
+    searchBtn.addEventListener('click', function(){
+        let movieName=input.value
+            console.log('feching data')
+            fetch(`http://www.omdbapi.com/?apikey=37bc79b2&t=${movieName}`)
+            .then(res=>res.json())
+            .then(data=>{
+                reasultContainer.innerHTML=`
+                <img src='${data.Poster}'>
+                <p>Title: ${data.Title}</p>
+                <p>Realeased Date: ${data.Released}</p>
+                <p>IMDB rating: ${data.imdbID}</p>
+                <p>Cast: ${data.Actors}</p>
+                <p>Director: ${data.Director}</p>
+                `
+            }).catch(error=>{
+                reasultContainer.innerHTML = 'Movie not found!'
+            })
+    })
+
+</script>
+</html>
