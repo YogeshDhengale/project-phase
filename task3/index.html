@@ -24,7 +24,7 @@
     </div>
 </body>
 <script>
-    const apiKey=''
+    const apiKey='37bc79b2'
     const searchBtn=document.getElementById('searchBtn')
     const input=document.getElementById('searchBar')
     const reasultContainer=document.getElementById('result-container')
@@ -34,14 +34,14 @@
     searchBtn.addEventListener('click', function(){
         let movieName=input.value
             console.log('feching data')
-            fetch(`http://www.omdbapi.com/?apikey=37bc79b2&t=${movieName}`)
+            fetch(`http://www.omdbapi.com/?apikey=${apiKey}&t=${movieName}`)
             .then(res=>res.json())
             .then(data=>{
                 reasultContainer.innerHTML=`
                 <img src='${data.Poster}'>
                 <p>Title: ${data.Title}</p>
                 <p>Realeased Date: ${data.Released}</p>
-                <p>IMDB rating: ${data.imdbID}</p>
+                <p>IMDB rating: ${data.imdbRating}</p>
                 <p>Cast: ${data.Actors}</p>
                 <p>Director: ${data.Director}</p>
                 `
@@ -49,6 +49,5 @@
                 reasultContainer.innerHTML = 'Movie not found!'
             })
     })
-
 </script>
 </html>
