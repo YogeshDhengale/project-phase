@@ -1,42 +1,82 @@
 <!DOCTYPE html>
 <html>
+    <title>Task 4</title>
 
 <head>
     <style>
-        .grid {
+        body {
+            background-image: url(background.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
             display: flex;
-            flex-wrap: wrap;
-            width: 500px;
-            height: 500px;
+            justify-content: center;
+            align-items: center;
         }
 
-        .grid li {
-            list-style: none;
-            width: 33.00%;
-            height: 33.00%;
-            float: left;
+        .turn {
+            margin: 0;
+            width: auto;
+            height: 30px;
             text-align: center;
-            line-height: 200px;
+            border-radius: 10px;
             border: 1px solid black;
+            background-color: azure;
+            padding-top: auto;
+            font-size: x-large;
+        }
+
+        .display{
+            margin: 10px;
+            width: auto;
+            height: auto;
+            text-align: center;
+            border-radius: 10px;
+            background-color: azure;
+            padding-top: auto;
+            font-size: x-large; 
+        }
+
+        .grid {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(3, 150px);
+            grid-template-rows: repeat(3, 150px);
+            padding: 0;
+        }
+
+        .grid>li {
+            padding: 10px;
+            background-color: white;
+            border: 1px solid black;
+            font-size: xx-large;
+            border-radius: 5px;
+            display: grid;
+            place-items: center;
         }
     </style>
 </head>
 
 <body>
-    <ul class="grid">
-        <li class="cells"></li>
-        <li class="cells"></li>
-        <li class="cells"></li>
-        <li class="cells"></li>
-        <li class="cells"></li>
-        <li class="cells"></li>
-        <li class="cells"></li>
-        <li class="cells"></li>
-        <li class="cells"></li>
-    </ul>
-    <button >Restart game</button>
-    <div class="turn"></div>
-    <div class="display"></div>
+    <div style="text-align: center;">
+        <ul class="grid">
+            <li class="cells" id="cell-0" value='0'></li>
+            <li class="cells" id="cell-1" value="1"></li>
+            <li class="cells" id="cell-2" value="2"></li>
+            <li class="cells" id="cell-3" value="3"></li>
+            <li class="cells" id="cell-4" value="4"></li>
+            <li class="cells" id="cell-5" value="5"></li>
+            <li class="cells" id="cell-6" value="6"></li>
+            <li class="cells" id="cell-7" value="7"></li>
+            <li class="cells" id="cell-8" value="8"></li>
+        </ul>
+        <div class="turn">Player X's turn</div>
+        <div class="display"></div>
+        <br>
+        <button id="restart-btn">Restart game</button>
+        <br>
+        
+    </div>
 </body>
-    <script src="script.js"></script>
+<script src="script.js"></script>
+
 </html>
