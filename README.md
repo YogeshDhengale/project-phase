@@ -1,2 +1,1 @@
-Please go to the other branches
-
+# Getting Started go to the branche features/AdvanceJavaScript
